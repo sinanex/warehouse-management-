@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:warehouse_manag/screen/add.dart';
+import 'package:warehouse_manag/screen/dashbord.dart';
+import 'package:warehouse_manag/screen/history.dart';
 import 'package:warehouse_manag/screen/liststock.dart';
 import 'package:warehouse_manag/widgets/widget.dart';
 
@@ -24,7 +24,7 @@ class Homepage extends StatelessWidget {
                   width: 30,
                 ),
                 Text(
-                  "Hey, name",
+                  "Hey, sinan",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -39,66 +39,76 @@ class Homepage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SizedBox(
-                  width: 180,
-                  height: 180,
-                  child: Card(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(13.0),
-                      child: Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("Orders",style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.grey,
-                          ),),
-                          const Text("Checking",style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey,
-                            fontSize: 20,
-                          ),),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20),
-                            child: Image.asset('assets/images/container.png',width: 88,),
-                          ),
-                        ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ShippingHistory()));
+                  },
+                  child: SizedBox(
+                    width: 180,
+                    height: 180,
+                    child: Card(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(13.0),
+                        child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text("Orders",style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.grey,
+                            ),),
+                            const Text("Checking",style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey,
+                              fontSize: 20,
+                            ),),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Image.asset('assets/images/container.png',width: 88,),
+                            ),
+                          ],
+                        ),
                       ),
+                      elevation: 8,
                     ),
-                    elevation: 8,
                   ),
                 ),
-                  SizedBox(
-                  width: 180,
-                  height: 180,
-                  child: Card(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(13.0),
-                      child: Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("Dash",style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Colors.grey,
-                          ),),
-                          const Text("Board",style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey,
-                            fontSize: 20,
-                          ),),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 40),
-                            child: Image.asset('assets/images/dashboard.png',width: 88,),
-                          ),
-                        ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashbord()));
+                    },
+                    child: SizedBox(
+                    width: 180,
+                    height: 180,
+                    child: Card(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(13.0),
+                        child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text("Dash",style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.grey,
+                            ),),
+                            const Text("Board",style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey,
+                              fontSize: 20,
+                            ),),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 40),
+                              child: Image.asset('assets/images/dashboard.png',width: 88,),
+                            ),
+                          ],
+                        ),
                       ),
+                      elevation: 8,
                     ),
-                    elevation: 8,
+                                    ),
                   ),
-                ),
                 
               ],
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_manag/screen/login.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -16,7 +17,9 @@ class ProfilePage extends StatelessWidget {
             Text('Email : ms4730435@gmail.com',style: style(),),
          SizedBox(height: 300,),
             Center(
-              child: ElevatedButton(onPressed: (){}, child: Text("Logout",style: TextStyle(
+              child: ElevatedButton(onPressed: (){
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+              }, child: Text("Logout",style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 19,
               ),),style: ElevatedButton.styleFrom(

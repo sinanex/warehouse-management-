@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warehouse_manag/screen/homepage.dart';
+import 'package:warehouse_manag/screen/orderDetils.dart';
 import 'package:warehouse_manag/widgets/widget.dart';
 
 class Shppingpage extends StatelessWidget {
@@ -8,7 +9,9 @@ class Shppingpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text("shipping",style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16,
@@ -20,53 +23,37 @@ class Shppingpage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 10,),
-              Center(
-                child: SizedBox(
-                  width: 200,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset('assets/images/MQTR3.jpeg')),
-                ),
-              ),
-          const SizedBox(height: 20,),
-            const Center(
-              child: Text('Beats Studio Pro',style: TextStyle(
-                fontWeight: FontWeight.w900,
-                fontSize: 28,
-              ),),
-            ),
-            const SizedBox(height: 15,),
-            const Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Catogary : headphone',style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),),
-                  SizedBox(height: 10,),
-                  Text("Color : White", style: TextStyle(
-                    fontWeight: FontWeight.bold,fontSize: 18),),
-                ],
+            Center(
+              child: Container(
+                width: 150,
+                child: Image.asset('assets/images/location.png'),
               ),
             ),
-            const SizedBox(height: 20,),
+                        const SizedBox(height: 50,),
+         Padding(
+           padding: const EdgeInsets.only(left: 20),
+           child: Text("recipent info",style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+           ),),
+         ),
+SizedBox(height: 15,),
               contextfeild(hindtext: 'customer name'),
+               contextfeild(hindtext: 'email or phone'),
+               contextfeild(hindtext: 'Location'),
               contextfeild(hindtext: 'shipping address'),
               contextfeild(hindtext: 'quantity'),
-              contextfeild(hindtext: 'price'),
-              const Padding(
-                padding: EdgeInsets.only(left: 20,top: 20,bottom: 20),
-                child: Text("Total Price : 0",style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),),
-              ),
+             
+               const SizedBox(height: 20,),
+           
+            const SizedBox(height: 15,),
+          
+            
+            SizedBox(height: 10,),
           
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const Homepage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const OrderdetilsPage()));
                 },
                 child: Center(
                   child: Container(
@@ -77,7 +64,7 @@ class Shppingpage extends StatelessWidget {
                       color: Colors.black
                     ),
                     child: const Center(
-                      child: Text("confom order",style: TextStyle(
+                      child: Text("next",style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 20

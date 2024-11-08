@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:warehouse_manag/screen/historydetials.dart';
-import 'package:warehouse_manag/screen/stockinfo.dart';
 import 'package:warehouse_manag/widgets/widget.dart';
 
 class ShippingHistory extends StatelessWidget {

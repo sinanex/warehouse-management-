@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:warehouse_manag/screen/add.dart';
+import 'package:warehouse_manag/screen/dashbord.dart';
 import 'package:warehouse_manag/screen/homepage.dart';
-import 'package:warehouse_manag/screen/liststock.dart';
 import 'package:warehouse_manag/screen/profile.dart';
 
 class Navigationpage extends StatefulWidget {
@@ -17,7 +17,7 @@ int currentState = 0;
 var pages = [
   Homepage(),
   AddstockPage(),
-  ListPage(),
+Dashbord(),
   ProfilePage(),
 ];
 
@@ -43,12 +43,12 @@ class _NavigationpageState extends State<Navigationpage> {
               text: 'home',
             ),
             GButton(
-              icon: (Iconsax.add),
+              icon: (Iconsax.add_square),
               text: 'add',
             ),
             GButton(
               icon: (Iconsax.activity),
-              text: 'activity',
+              text: 'dashboard',
             ),
             GButton(
               icon: (Iconsax.user),

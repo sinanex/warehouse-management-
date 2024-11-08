@@ -56,7 +56,7 @@ class StockDetails extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Shppingpage()));
-                }, child: Text("......",style: TextStyle(
+                }, child: Text("shipping",style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),),

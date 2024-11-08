@@ -16,8 +16,8 @@ class _EditpageState extends State<Editpage> {
     'Mobile',
     'Headphone',
     'Television',
-    'Mobile Accessories',
-    'Laptop Accessories'
+    'Speaker',
+    'Smart Watches'
   ];
   String? newValue;
 
