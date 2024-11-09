@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:warehouse_manag/screen/liststock.dart';
+import 'package:warehouse_manag/screen/profile.dart';
 import 'package:warehouse_manag/widgets/widget.dart';
 
 class AddstockPage extends StatefulWidget {
-  AddstockPage({super.key});
+  const AddstockPage({super.key});
 
   @override
   State<AddstockPage> createState() => _AddstockPageState();
 }
-
+TextEditingController datecontroller = TextEditingController();
 class _AddstockPageState extends State<AddstockPage> {
   final List<String> items = [
     'Laptop',
     'Mobile',
     'Headphone',
     'Television',
-    'Mobile Accessories',
-    'Laptop Accessories'
+    'Speakers',
+    'Smart Watches',
   ];
   String? newValue;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('add stock',style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 15,
-        ),),
+        backgroundColor: Colors.white,
+        title: Text("add stock",style: style(),),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -43,7 +44,7 @@ class _AddstockPageState extends State<AddstockPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               ElevatedButton(
@@ -52,34 +53,36 @@ class _AddstockPageState extends State<AddstockPage> {
                   foregroundColor: Colors.white,
                 ),
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   "Add image",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              contextfeild(hindtext: 'Product Name'),
-              contextfeild(hindtext: 'Colour'),
+             contextfeild(hindtext: 'customer name'),
+             contextfeild(hindtext: 'colour'),
+             
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   width: 390,
                   height: 60,
                   decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: DropdownButton(
                      
                       isExpanded: true,
-                      hint: Text('Catogary'),
+                      hint: const Text('Catogary'),
                       value: newValue,
                       items: items.map((String item) {
                         return DropdownMenuItem<String>(
-                  
+                                      
                           value: item,
                         
                           child: Text(item),
@@ -95,42 +98,32 @@ class _AddstockPageState extends State<AddstockPage> {
                 ),
               ),
               contextfeild(hindtext: 'Quantity'),
-              contextfeild(hindtext: 'Price'),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: 200,
-                      height: 100,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'description'
-                        ),
-                      ),
-                    ),
-                  ),
-                  width: double.infinity,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.white,
+                child: TextField(
+                  controller: datecontroller,
+                  onTap: (){
+                    date();
+                  },
+                  readOnly: true,
+                  decoration: InputDecoration(
+                    hintText: 'date',
+                   border: OutlineInputBorder(),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                color: Colors.grey,
+                            ),
+                            borderRadius: BorderRadius.circular(10)),
+                    prefixIcon: Icon(Iconsax.calendar_1)
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "Total price : 21500",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
+              contextfeild(hindtext: 'Price'),
+           contextfeild(hindtext: 'description'),
+              const SizedBox(
                 height: 30,
               ),
               SizedBox(
@@ -143,9 +136,9 @@ class _AddstockPageState extends State<AddstockPage> {
                   ),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ListPage()));
+                        MaterialPageRoute(builder: (context) => const ListPage()));
                   },
-                  child: Text(
+                  child: const Text(
                     "Conform",
                     style: TextStyle(
                       fontSize: 18,
@@ -159,5 +152,18 @@ class _AddstockPageState extends State<AddstockPage> {
         ),
       ),
     );
+  }
+  
+  Future<void> date()async {
+
+   DateTime? _selectedDate = await showDatePicker(context: context,
+    initialDate: DateTime.now(),
+     firstDate: DateTime(2000), 
+     lastDate: DateTime(2100));
+     if(_selectedDate!=null){
+      setState(() {
+        datecontroller.text = _selectedDate.toString().split(" ")[0];
+      });
+     }
   }
 }

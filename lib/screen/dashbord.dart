@@ -4,7 +4,7 @@ import 'package:warehouse_manag/screen/profile.dart';
 
 class Dashbord extends StatelessWidget {
   final Map<String, double> dataMap = {
-    "Phone": 30,
+    "Phone": 25,
     "Laptop": 15,
     "Headphone": 15,
     "Speakers": 10,
@@ -25,7 +25,9 @@ class Dashbord extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text('Dashboard',style: style(),),
       ),
       body: PieChart(

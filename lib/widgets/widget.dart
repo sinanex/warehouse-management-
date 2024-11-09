@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warehouse_manag/screen/profile.dart';
 
 Widget imageContainer({required String name, required String imagePath}) {
   return Column(
@@ -52,59 +53,83 @@ Widget contextfeild({required String hindtext}) {
 }
 
 Widget itemContainer() {
-  return Padding(
-    padding: const EdgeInsets.all(10.0),
-    child: Container(
+   return Padding(
+     padding: const EdgeInsets.all(2.0),
+     child: Container(
+      height: 80,
+      decoration: BoxDecoration(
+      ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          SizedBox(
-            width: 10,
+          CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: 40,
+            child: Image.asset('assets/images/MQTR3.jpeg',width: 50,),
           ),
-          Image.asset('assets/images/MQTR3.jpeg'),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "Beats Studio pro",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 19,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(
-                  "Color : white",
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(
-                  "Catogary : Headphone",
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(
-                  "Quantity : 1000",
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-                ),
-              ),
+              Text("Beat Studio pro",style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),),
+              Text("Nov 8th 2024",style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: Colors.grey,
+              ),),
+            ],
+          ),
+          SizedBox(width: 50,),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+     
+            children: [
+              Text("Completed",style: 
+              TextStyle(
+                color: Colors.green[700],
+                fontWeight: FontWeight.bold,
+              ),)
             ],
           )
         ],
       ),
-      width: double.infinity,
-      height: 170,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.white,
-      ),
-    ),
+     ),
+   );
+}
+
+
+Widget cont (){
+  return GestureDetector(
+   
+    child: Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CircleAvatar(
+                  radius: 40,
+                  child: Image.asset('assets/images/MQTR3.jpeg'),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Beat Studio Pro",style: style(),),
+                    Text("Qty : 1000",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[700],
+                    ),),
+                  ],
+                ),
+                Icon(Icons.arrow_forward_ios_outlined)
+              ],
+            ),
+            width: double.infinity,
+            height: 100,
+           color: Colors.white,
+          ),
   );
 }

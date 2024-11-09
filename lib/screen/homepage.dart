@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:warehouse_manag/screen/dashbord.dart';
 import 'package:warehouse_manag/screen/history.dart';
 import 'package:warehouse_manag/screen/liststock.dart';
+import 'package:warehouse_manag/screen/profile.dart';
 import 'package:warehouse_manag/widgets/widget.dart';
 
 class Homepage extends StatelessWidget {
@@ -18,22 +19,23 @@ class Homepage extends StatelessWidget {
             const SizedBox(
               height: 80,
             ),
-            const Row(
+             Row(
               children: [
                 SizedBox(
                   width: 30,
                 ),
+                CircleAvatar(
+                  child: Image.asset('assets/images/profile.png'),
+                ),
+                SizedBox(width: 20,),
                 Text(
                   "Hey, sinan",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
+                  style: style(),
                 ),
               ],
             ),
             const SizedBox(
-              height: 50,
+              height: 30,
             ),
 
             Row(
@@ -41,13 +43,14 @@ class Homepage extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ShippingHistory()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const ShippingHistory()));
                   },
                   child: SizedBox(
                     width: 180,
                     height: 180,
                     child: Card(
                       color: Colors.white,
+                      elevation: 8,
                       child: Padding(
                         padding: const EdgeInsets.all(13.0),
                         child: Column(
@@ -70,7 +73,6 @@ class Homepage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      elevation: 8,
                     ),
                   ),
                 ),
@@ -83,6 +85,7 @@ class Homepage extends StatelessWidget {
                     height: 180,
                     child: Card(
                       color: Colors.white,
+                      elevation: 8,
                       child: Padding(
                         padding: const EdgeInsets.all(13.0),
                         child: Column(
@@ -105,7 +108,6 @@ class Homepage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      elevation: 8,
                     ),
                                     ),
                   ),
@@ -131,7 +133,14 @@ class Homepage extends StatelessWidget {
               width: double.infinity,
               height: 120,
               decoration: BoxDecoration(
-                color: Colors.black,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey[300]!,
+                    blurRadius: 10,
+                    blurStyle: BlurStyle.outer
+
+                  )
+                ],
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -146,12 +155,12 @@ class Homepage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("TOTAL STOCK",style: TextStyle(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 0, 0, 0),
                         fontWeight: FontWeight.w900,
                         fontSize: 20,
                       ),),
                       Text("75 Packages",style: TextStyle(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 0, 0, 0),
                         fontWeight: FontWeight.w900,
                         fontSize: 19,
                       ),),
@@ -167,7 +176,7 @@ class Homepage extends StatelessWidget {
             ),
           ),
         ),  
-        Padding(
+        const Padding(
               padding: EdgeInsets.only(left: 30,
               top: 50),
               child: Text("catogary",style: TextStyle(
@@ -208,7 +217,7 @@ class Homepage extends StatelessWidget {
                     imagePath: 'assets/images/fitness-tracker.png'),
               ],
             ),
-             SizedBox(
+             const SizedBox(
               height: 20,
             ),
            

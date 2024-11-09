@@ -8,7 +8,9 @@ class StockDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text('stock details',style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,

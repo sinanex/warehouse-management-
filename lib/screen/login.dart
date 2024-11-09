@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:warehouse_manag/screen/bottomNavigation.dart';
 import 'package:warehouse_manag/screen/register.dart';
+import 'package:warehouse_manag/widgets/widget.dart';
 
 class LoginPage extends StatefulWidget {
  LoginPage({super.key});
@@ -17,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
@@ -46,36 +48,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 100,),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text("Email Address",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold
-                ),),
-              ),
-              Container(
-                decoration: BoxDecoration(
-               color: Colors.white,
-               borderRadius: BorderRadius.circular(30)
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Email Address',
-                    ),
-                  ),
-                ),
-              ),
+             contextfeild(hindtext: 'name'),
               const SizedBox(height: 30,),
-               const Padding(
-                 padding: EdgeInsets.all(8.0),
-                 child: Text("Password",
-                             style: TextStyle(
-                  fontWeight: FontWeight.bold
-                             ),),
-               ),
+             
                Container(
                 decoration: BoxDecoration(
                color: Colors.white,
@@ -86,6 +61,18 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextField(
                     obscureText: passwordHide,
                     decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey
+                        ),
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                      ),
                       suffixIcon: IconButton(icon:  Icon(icon),onPressed: (){
                         setState(() {
                           passwordHide = !passwordHide;
@@ -121,26 +108,28 @@ class _LoginPageState extends State<LoginPage> {
                     ),),),
                   ),
                   const SizedBox(height: 30,),
-                  Container(
-                    width: 360,
-                    height: 65,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                       borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 55,right: 55),
-                      child: Row(
-                        children: [
-                          Image.network('https://static.vecteezy.com/system/resources/previews/013/948/549/non_2x/google-logo-on-transparent-white-background-free-vector.jpg'),
-                          const Spacer(),
-                          const Text('Sign In with Google',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),),
-                          
-                        ],
+                  Card(
+                    color: Colors.white,
+                    child: Container(
+                      width: 360,
+                      height: 65,
+                      decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 55,right: 55),
+                        child: Row(
+                          children: [
+                            Image.network('https://static.vecteezy.com/system/resources/previews/013/948/549/non_2x/google-logo-on-transparent-white-background-free-vector.jpg'),
+                            const Spacer(),
+                            const Text('Sign In with Google',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),),
+                            
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -8,7 +8,9 @@ class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         toolbarHeight: 80,
         flexibleSpace: Column(
           children: [
@@ -19,7 +21,7 @@ class ListPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 45, right: 20),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: const Color.fromARGB(255, 232, 224, 224),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Padding(
@@ -36,25 +38,18 @@ class ListPage extends StatelessWidget {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: GestureDetector(
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>StockDetails()));
-          },
-          child: Column(
-            
-            children: [
-              itemContainer(),
-              itemContainer(),
-              itemContainer(),
-              itemContainer(),
-              itemContainer(),
-              itemContainer(),
-              itemContainer(),
-            ],
-          ),
-        ),
-      )
+    body: GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>StockDetails()));
+      },
+      child: Column(
+        children: [
+         cont(),
+         cont(),
+         cont(),
+        ],
+      ),
+    ),
     );
   }
 }

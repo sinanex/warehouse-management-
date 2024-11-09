@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:warehouse_manag/screen/add.dart';
 import 'package:warehouse_manag/screen/liststock.dart';
 import 'package:warehouse_manag/widgets/widget.dart';
 
@@ -10,8 +12,7 @@ class Editpage extends StatefulWidget {
 }
 
 class _EditpageState extends State<Editpage> {
-  @override
- final List<String> items = [
+  final List<String> items = [
     'Laptop',
     'Mobile',
     'Headphone',
@@ -24,7 +25,11 @@ class _EditpageState extends State<Editpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.white,
+      appBar: AppBar(backgroundColor: Colors.white,title: const Text("edit item",style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+      ),),),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -39,7 +44,7 @@ class _EditpageState extends State<Editpage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               ElevatedButton(
@@ -48,7 +53,7 @@ class _EditpageState extends State<Editpage> {
                   foregroundColor: Colors.white,
                 ),
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   "Edit image",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -63,15 +68,16 @@ class _EditpageState extends State<Editpage> {
                   width: 390,
                   height: 60,
                   decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: DropdownButton(
                      
                       isExpanded: true,
-                      hint: Text('Catogary'),
+                      hint: const Text('Catogary'),
                       value: newValue,
                       items: items.map((String item) {
                         return DropdownMenuItem<String>(
@@ -91,36 +97,36 @@ class _EditpageState extends State<Editpage> {
                 ),
               ),
               contextfeild(hindtext: 'Quantity'),
-              contextfeild(hindtext: 'Price'),
-              Padding(
+               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: 200,
-                      height: 100,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'description'
-                        ),
-                      ),
-                    ),
-                  ),
-                  width: double.infinity,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.white,
+                child: TextField(
+                  controller: datecontroller,
+                  onTap: (){
+                    date();
+                  },
+                  readOnly: true,
+                  decoration: InputDecoration(
+                    hintText: 'date',
+                   border: OutlineInputBorder(),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                color: Colors.grey,
+                            ),
+                            borderRadius: BorderRadius.circular(10)),
+                    prefixIcon: Icon(Iconsax.calendar_1)
                   ),
                 ),
               ),
-              SizedBox(
+              contextfeild(hindtext: 'Price'),
+             contextfeild(hindtext: 'description'),
+              const SizedBox(
                 height: 20,
               ),
              
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               SizedBox(
@@ -133,9 +139,9 @@ class _EditpageState extends State<Editpage> {
                   ),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ListPage()));
+                        MaterialPageRoute(builder: (context) => const ListPage()));
                   },
-                  child: Text(
+                  child: const Text(
                     "Submit",
                     style: TextStyle(
                       fontSize: 18,
@@ -149,5 +155,18 @@ class _EditpageState extends State<Editpage> {
         ),
       ),
     );
+  }
+  
+  Future<void> date()async {
+
+   DateTime? _selectedDate = await showDatePicker(context: context,
+    initialDate: DateTime.now(),
+     firstDate: DateTime(2000), 
+     lastDate: DateTime(2100));
+     if(_selectedDate!=null){
+      setState(() {
+        datecontroller.text = _selectedDate.toString().split(" ")[0];
+      });
+     }
   }
 }

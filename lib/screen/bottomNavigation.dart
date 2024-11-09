@@ -15,10 +15,10 @@ class Navigationpage extends StatefulWidget {
 
 int currentState = 0;
 var pages = [
-  Homepage(),
-  AddstockPage(),
+  const Homepage(),
+  const AddstockPage(),
 Dashbord(),
-  ProfilePage(),
+  const ProfilePage(),
 ];
 
 class _NavigationpageState extends State<Navigationpage> {
@@ -27,17 +27,18 @@ class _NavigationpageState extends State<Navigationpage> {
     return Scaffold(
       body: pages[currentState],
       bottomNavigationBar: GNav(
+        
           selectedIndex: currentState,
           onTabChange: (value) {
             setState(() {
               currentState = value;
             });
           },
-          color: Colors.white,
-          backgroundColor: Colors.black,
-          activeColor: Colors.white,
+          color: Colors.black,
+          backgroundColor: const Color.fromARGB(209, 247, 246, 246),
+          activeColor: Colors.black,
           gap: 8,
-          tabs: [
+          tabs: const [
             GButton(
               icon: (Iconsax.home),
               text: 'home',
